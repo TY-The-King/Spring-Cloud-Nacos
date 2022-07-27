@@ -15,5 +15,4 @@ public class NacosConfigApplication {
     public static void main(String[] args) {
         SpringApplication.run(NacosConfigApplication.class,args);
     }
-
 }

@@ -13,6 +13,7 @@
         <module>server-provider</module>
         <module>server-consumer</module>
         <module>server-provider-two</module>
+        <module>gateway</module>
     </modules>
 
     <properties>

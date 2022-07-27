@@ -26,6 +26,6 @@ public class ProviderController {
 
     @GetMapping("/hi")
     public String hi(@RequestParam(value = "name", defaultValue = "TheKing",required = false) String name){
-        return "Hello "+name+"i'm provider,my port is: "+port;
+        return "Hello "+name+" i'm provider,my port is: "+port;
     }
 }

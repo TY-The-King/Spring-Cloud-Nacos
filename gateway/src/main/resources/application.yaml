@@ -1,0 +1,46 @@
+#port：端口号
+server:
+  port: 5000
+
+#application：应用名
+spring:
+  application:
+    name: gateway
+  #nacos服务注册发现中心地址
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    #gateway网关
+    gateway:
+      discovery:
+        locator:
+          enabled: false
+          lower-case-service-id: true
+      #routes：路由转发
+      routes:
+        - id: server-provider
+          #使用服务名方式
+          uri:
+            lb://server-provider
+          predicates:
+            - Path=/provider/**
+          filters:
+            - StripPrefix=1
+        - id: server-consumer
+          #使用服务名方式
+          uri:
+            lb://server-consumer
+          predicates:
+            - Path=/consumer/**
+          filters:
+            - StripPrefix=1
+    #sentinel：哨兵
+    sentinel:
+      transport:
+        port: 15000
+        dashboard: localhost:8748
+  #注意：开启相同名称的bean进行覆盖，若不开启则会报错
+  #使用我们自己在GatewayConfiguration中注入的sentinelGatewayFilter
+  main:
+    allow-bean-definition-overriding: true
