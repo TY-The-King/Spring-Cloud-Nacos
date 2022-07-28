@@ -24,7 +24,7 @@ spring:
           uri:
             lb://server-provider
           predicates:
-            - Path=/provider/**
+            - Path=/server-provider/**
           filters:
             - StripPrefix=1
         - id: server-consumer
@@ -32,7 +32,7 @@ spring:
           uri:
             lb://server-consumer
           predicates:
-            - Path=/consumer/**
+            - Path=/server-consumer/**
           filters:
             - StripPrefix=1
     #sentinel：哨兵
@@ -44,3 +44,15 @@ spring:
   #使用我们自己在GatewayConfiguration中注入的sentinelGatewayFilter
   main:
     allow-bean-definition-overriding: true
+
+  #zipkin
+  zipkin:
+    sender:
+      type: web
+    base-url: http://localhost:9411/
+    service:
+      name: gateway
+  sleuth:
+    sampler:
+      probability: 1
+
