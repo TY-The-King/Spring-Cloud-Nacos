@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author TheKing
  * @version 1.0
  * @className ConfigApplication
- * @description
+ * @description Nacos service center
  * @date 2022/7/25 16:29
  */
 @SpringBootApplication

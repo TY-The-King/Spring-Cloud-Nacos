@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
  * @author TheKing
  * @version 1.0
  * @className ConsumerApplication
- * @description
+ * @description consumer service
  * @date 2022/7/26 9:35
  */
 @SpringBootApplication
